@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\VentasController;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -34,3 +35,7 @@ Route::resource('productos', ProductosController::class);
 // Route::get('ventas/add-producto', [VentasController::class, 'addProducto']);
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
