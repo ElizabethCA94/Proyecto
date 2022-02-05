@@ -23,19 +23,27 @@ use Illuminate\Support\Facades\Auth;
 //     return view('welcome');
 // });
 
+Auth::routes();
+Route::middleware('auth')->group(function(){
+    Route::get('/', [ProductosController::class, 'index']);
+    Route::resource('clientes', ClientesController::class);
+    Route::resource('ventas', VentasController::class);
+    Route::resource('productos', ProductosController::class);
+});
 
-Route::get('/', [ProductosController::class, 'index']);
-
-Route::resource('clientes', ClientesController::class);
-
-Route::resource('ventas', VentasController::class);
-
-Route::resource('productos', ProductosController::class);
 
 // Route::get('ventas/add-producto', [VentasController::class, 'addProducto']);
 
 
 
-Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('ruta', function(){
+    return 'Puede ingresar';
+})->middleware('proteccion');
+
+Route::get('ruta_verficacion', function(){
+    return 'No se puede ingresar, ruta protegida';
+});
