@@ -47,3 +47,13 @@ Route::get('ruta', function(){
 Route::get('ruta_verficacion', function(){
     return 'No se puede ingresar, ruta protegida';
 });
+//dani
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+Route::resource('instrumentos', App\Http\Controllers\InstrumentoController::class)->middleware('auth');
+Route::resource('categorias', App\Http\Controllers\CategoriaController::class)->middleware('auth');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
