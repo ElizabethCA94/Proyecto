@@ -36,7 +36,8 @@
                                                 <td>{{ $producto->nombre }}</td>
                                                 <td>{{ $producto->descripcion }}</td>
                                                 <td>{{ $producto->precio }}</td>
-                                                <td>{{ $producto->categoria->nombre }}</td>
+                                                <td>
+                                                    <img src="/imagen/{{ $producto->categoria->nombre }}" width="60%">
                                                 <td>
                                                     <div class="d-flex justify-content-sm-center">
                                                         <a href="{{ route('productos.edit', $producto->id) }}">

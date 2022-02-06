@@ -2,10 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
-use Illuminate\Http\Request;
+use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
-class Proteccion
+class Proteccion extends Middleware
 {
     /**
      * Handle an incoming request.
@@ -14,8 +13,10 @@ class Proteccion
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function redirectTo($request)
     {
-        return $next($request);
+        return redirect('/home');
+        // if (true) {
+        // }
     }
 }

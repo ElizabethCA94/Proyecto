@@ -42,7 +42,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('ruta', function(){
     return 'Puede ingresar';
-})->middleware('proteccion');
+})->middleware('authorization');
 
 Route::get('ruta_verficacion', function(){
     return 'No se puede ingresar, ruta protegida';
@@ -53,9 +53,15 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::resource('instrumentos', App\Http\Controllers\InstrumentoController::class)->middleware('auth');
 Route::resource('categorias', App\Http\Controllers\CategoriaController::class)->middleware('auth');
-Route::resource('clientes', ClientesController::class)->middleware('auth');
+Route::resource('clientes', ClientesController::class)->middleware('auth')->middleware('proteccion');
 Route::resource('ventas', VentasController::class)->middleware('auth');
 Route::resource('productos', ProductosController::class)->middleware('auth');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::middleware('proteccion')->group(function(){
+//     // Route::get('/', [ProductosController::class, 'index']);
+//     Route::get('/clientes/create');
+//     // Route::resource('ventas', VentasController::class);
+//     // Route::resource('productos', ProductosController::class);
+// });

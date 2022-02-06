@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+this is the request
+{{-- {{ $request }} --}}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
