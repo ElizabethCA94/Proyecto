@@ -16,4 +16,8 @@ class Producto extends Model
     {
         return $this->belongsToMany(Venta::class, 'producto_venta');
     }
+    public function categoria()
+    {
+        return $this->hasOne(Categoria::class, 'id', 'categoria_id');
+    }
 }

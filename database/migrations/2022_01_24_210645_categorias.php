@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Instrumentos extends Migration
+class Categorias extends Migration
 {
     /**
      * Run the migrations.
@@ -14,21 +14,15 @@ class Instrumentos extends Migration
     public function up()
     {
         //
-        
-        Schema::create('instrumentos', function (Blueprint $table) {
+        Schema::create('categorias', function (Blueprint $table) {
             
-
-            $table->engine="InnoDB";
-
-            $table->bigIncrements('id');
-
-            $table->bigInteger('categoria_id')->unsigned();
-
+            // $table->engine="InnoDB";//borrar en cascada
+            $table->increments('id');
             $table->string('nombre');
-
             $table->timestamps();
             
-            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete("cascade");
+
+
         });
     }
 
@@ -39,7 +33,6 @@ class Instrumentos extends Migration
      */
     public function down()
     {
-        //
-       
+        Schema::dropIfExists('categorias');
     }
 }

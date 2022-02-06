@@ -36,10 +36,10 @@ class Categoria extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function instrumentos()
-    {
-        return $this->hasMany('App\Models\Instrumento', 'categoria_id', 'id');
-    }
+    // public function instrumentos()
+    // {
+    //     return $this->hasMany('App\Models\Instrumento', 'categoria_id', 'id');
+    // }
     
 
 }

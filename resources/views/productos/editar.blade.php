@@ -3,33 +3,42 @@
 @include('partes.head')
 
 <body>
-    <div id="cuerpo-pagina" class="container text-center">
-        <h4>Edición de productos</h4>
+    <div id="cuerpo-pagina" class="container">
+        <h4 class="text-center">Edición de productos</h4>
         <form action="{{route('productos.update', $producto->id)}}" method="POST">
             @method('PUT')
             @csrf
             <div class="form-group">
-                <label for="nombre"></label>
-                <input type="text" class="form-control" name="nombres" id="nombres" placeholder="Nombre" value={{$producto->nombre}}>
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" value={{$producto->nombre}}>
             </div>
             <div class="form-group">
-                <label for="descripcion"></label>
+                <label for="descripcion">Descripcion</label>
                 <input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="Descripcion" value={{$producto->descripcion}}>
             </div>
             <div class="form-group">
-                <label for="precio"></label>
-                <input type="text" class="form-control" name="precios" id="precios" placeholder="Precio" value={{$producto->precio}}>
+                <label for="precio">Precio</label>
+                <input type="text" class="form-control" name="precio" id="precio" placeholder="Precio" value={{$producto->precio}}>
+            </div>
+            <div class="form-group">
+                <label for="cliente_id">Categoria</label>
+                <select class="custom-select" name="categoria_id" id="categoria_id">
+                    @foreach ($categorias as $categoria)
+                        <option
+                        value="{{ $categoria->id }}" {{ $categoria->id == $producto->categoria_id ? 'selected' : ''}}>
+                            {{ $categoria->nombre }} 
+                        </option>
+                    @endforeach
+                </select>
             </div>
             <button type="submit" class="btn btn-primary mt-4">Editar</button>
         </form>
         @if(isset($errors) && $errors->any())
             <div class="iq-card-header d-flex justify-content-between">
-                <div class="alert alert-danger col-md-12 mt-2">
-                    <ul>
+                <div class="alert alert-danger col-md-12 mt-2" role="alert">
                         @foreach($errors->all() as $error)
-                            <li>{!!$error!!}</li>
+                            {!!$error!!}
                         @endforeach
-                    </ul>
                 </div>
             </div>
         @endif

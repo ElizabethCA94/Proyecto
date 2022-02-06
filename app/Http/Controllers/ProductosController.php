@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use App\Models\Categoria;
+
 
 class ProductosController extends Controller
 {
@@ -27,7 +29,9 @@ class ProductosController extends Controller
      */
     public function create()
     {
-        return view('productos.almacenar');
+        $categorias = Categoria::all();
+        return view('productos.almacenar')
+            ->with('categorias', $categorias);
     }
 
     /**
@@ -40,10 +44,11 @@ class ProductosController extends Controller
     {
         //instancia de la clase Productos, -> son campos de la bd y -> son name del formulario
         $producto = new Producto();
-        $producto->nombre = $request->nombres;
+        $producto->nombre = $request->nombre;
         $producto->descripcion= $request->descripcion;
-        $producto->precio = $request->precios;
+        $producto->precio = $request->precio;
         $producto->imagen = 'Imagen de prueba';
+        $producto->categoria_id = $request->categoria_id;
         $producto->save();
 
         return redirect()-> route('productos.index');
@@ -71,7 +76,10 @@ class ProductosController extends Controller
     public function edit($id)
     {
         $producto = Producto::find($id);
-        return view('productos.editar')->with('producto', $producto);
+        $categorias = Categoria::all();
+        return view('productos.editar')
+            ->with('producto', $producto)
+            ->with('categorias', $categorias);
     }
 
     /**
@@ -84,16 +92,18 @@ class ProductosController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'nombres' => 'required',
-            'precios' => 'required',
+            'nombre' => 'required',
+            'precio' => 'required',
             'descripcion' => 'required',
         ]);
 
         $producto = Producto::find($id);
-        $producto->nombre = $request->nombres;
+        $producto->nombre = $request->nombre;
         $producto->descripcion= $request->descripcion;
-        $producto->precio = $request->precios;
+        $producto->precio = $request->precio;
         $producto->imagen = 'Imagen de prueba';
+        $producto->categoria_id = $request->categoria_id;
+
         $producto->save();
 
         return redirect()-> route('productos.index');

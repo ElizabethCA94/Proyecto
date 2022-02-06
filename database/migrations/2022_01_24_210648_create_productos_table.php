@@ -19,6 +19,8 @@ class CreateProductosTable extends Migration
             $table->string('descripcion');
             $table->float('precio');
             $table->string('imagen');
+            $table->unsignedInteger('categoria_id')->nullable();
+            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('set null');
             $table->timestamps();
         });
     }

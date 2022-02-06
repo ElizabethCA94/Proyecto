@@ -55,5 +55,7 @@ Route::get('/', function () {
 Auth::routes();
 Route::resource('instrumentos', App\Http\Controllers\InstrumentoController::class)->middleware('auth');
 Route::resource('categorias', App\Http\Controllers\CategoriaController::class)->middleware('auth');
-
+Route::resource('clientes', ClientesController::class)->middleware('auth');
+Route::resource('ventas', VentasController::class)->middleware('auth');
+Route::resource('productos', ProductosController::class)->middleware('auth');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

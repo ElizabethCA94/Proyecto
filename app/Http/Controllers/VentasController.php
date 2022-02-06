@@ -120,16 +120,4 @@ class VentasController extends Controller
 
     }
 
-    // public function addProducto(){
-    //     // $producto = new Producto();
-    //     // $producto->nombre = $request->nombres;
-    //     // $producto->descripcion= $request->descripcion;
-    //     // $producto->precio = $request->precios;
-    //     // $producto->imagen = 'Imagen de prueba';
-    //     // $producto->save();
-
-    //     // $ventaids = [$id];
-    //     // $producto->ventas()->attach($ventaids);
-    //     return 'hola';
-    // }
 }

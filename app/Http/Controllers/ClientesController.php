@@ -40,9 +40,9 @@ class ClientesController extends Controller
     {
         //instancia de la clase Clientes, -> son campos de la bd y -> son name del formulario
         $cliente = new Cliente();
-        $cliente->nombre = $request->nombres;
-        $cliente->apellido= $request->apellidos;
-        $cliente->telefono = $request->telefonos;
+        $cliente->nombre = $request->nombre;
+        $cliente->apellido= $request->apellido;
+        $cliente->telefono = $request->telefono;
         $cliente->direccion = $request->direccion;
         $cliente->save();
 
@@ -82,16 +82,16 @@ class ClientesController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'nombres' => 'required',
-            'apellidos' => 'required',
-            'telefonos' => 'required',
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'telefono' => 'required',
             'direccion' => 'required',
         ]);
 
         $cliente = Cliente::find($id);
-        $cliente->nombre = $request->nombres;
-        $cliente->apellido= $request->apellidos;
-        $cliente->telefono = $request->telefonos;
+        $cliente->nombre = $request->nombre;
+        $cliente->apellido= $request->apellido;
+        $cliente->telefono = $request->telefono;
         $cliente->direccion = $request->direccion;
         $cliente->save();
 

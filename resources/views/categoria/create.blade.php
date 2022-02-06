@@ -1,11 +1,7 @@
 @extends('layouts.app')
 
-@section('template_title')
-    Create Categoria
-@endsection
-
 @section('content')
-    <section class="content container-fluid">
+    <section class="content container">
         <div class="row">
             <div class="col-md-12">
 
@@ -13,10 +9,10 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Create Categoria</span>
+                        <span class="card-title text-center">Crear Categoria</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('categorias.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('categorias.store') }}"  role="form" enctype="multipart/form-data" autocomplete="off">
                             @csrf
 
                             @include('categoria.form')
