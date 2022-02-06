@@ -1,11 +1,7 @@
 @extends('layouts.app')
 
-@section('template_title')
-    Categoria
-@endsection
-
 @section('content')
-    <div class="container-fluid">
+    <div class="content container">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -13,12 +9,13 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Categoria') }}
+                                {{ __('Lista de categorias') }}
                             </span>
 
                             <div class="float-right">
-                                <a href="{{ route('categorias.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                {{ __('Create New') }}
+                                <a href="{{ route('categorias.create') }}" class="btn btn-primary btn-sm float-right"
+                                    data-placement="left">
+                                    {{ __('Create New') }}
                                 </a>
                             </div>
                         </div>
@@ -35,7 +32,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>#</th>
-										<th>Nombre</th>
+                                        <th>Nombre</th>
                                         <th>Operaciones</th>
                                     </tr>
                                 </thead>
@@ -43,16 +40,21 @@
                                     @foreach ($categorias as $categoria)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $categoria->nombre }}</td>
+
+                                            <td>{{ $categoria->nombre }}</td>
 
                                             <td>
-                                                <form action="{{ route('categorias.destroy',$categoria->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('categorias.show',$categoria->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('categorias.edit',$categoria->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('categorias.destroy', $categoria->id) }}"
+                                                    method="POST">
+                                                    <a class="btn btn-sm btn-primary "
+                                                        href="{{ route('categorias.show', $categoria->id) }}"><i
+                                                            class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success"
+                                                        href="{{ route('categorias.edit', $categoria->id) }}"><i
+                                                            class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
                                                 </form>
                                             </td>
                                         </tr>

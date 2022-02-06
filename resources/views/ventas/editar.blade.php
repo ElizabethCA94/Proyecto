@@ -37,7 +37,7 @@
                                 </select>
                             </div>
                             <div class="btn-group" role="group" aria-label="editar-venta">
-                                <button type="button" class="btn btn-primary mt-4">Editar</button>
+                                <button type="submit" class="btn btn-primary mt-3">Editar</button>
                             </div>
                         </form>
                         @if (isset($errors) && $errors->any())

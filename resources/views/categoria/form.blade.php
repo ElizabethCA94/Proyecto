@@ -9,6 +9,6 @@
 
     </div>
     <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary my-3">Submit</button>
+        <button type="submit" class="btn btn-primary my-3">Crear</button>
     </div>
 </div>

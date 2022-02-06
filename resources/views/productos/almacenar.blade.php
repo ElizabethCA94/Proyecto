@@ -13,7 +13,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="nombre"></label>
-                                <input type="text" class="form-control" name="nombres" id="nombres" placeholder="Nombre"
+                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre"
                                     autocomplete="off" required>
                             </div>
                             <div class="form-group">
@@ -23,7 +23,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="precio"></label>
-                                <input type="text" class="form-control" name="precios" id="precios" placeholder="Precio"
+                                <input type="text" class="form-control" name="precio" id="precio" placeholder="Precio"
                                     autocomplete="off" required>
                             </div>
                             <div class="form-group pt-2">
@@ -35,7 +35,7 @@
                                 </select>
                             </div>
                             <div class="btn-group" role="group" aria-label="crear-producto">
-                                <button type="button" class="btn btn-primary mt-3">Crear</button>
+                                <button type="submit" class="btn btn-primary mt-3">Crear</button>
                             </div>
                         </form>
                     </div>

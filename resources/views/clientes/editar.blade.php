@@ -33,7 +33,7 @@
                                     placeholder="Direccion" autocomplete="off" value={{ $cliente->direccion }}>
                             </div>
                             <div class="btn-group" role="group" aria-label="editar-cliente">
-                                <button type="button" class="btn btn-primary mt-3">Editar</button>
+                                <button type="submit" class="btn btn-primary mt-3">Editar</button>
                             </div>
                         </form>
                         @if (isset($errors) && $errors->any())

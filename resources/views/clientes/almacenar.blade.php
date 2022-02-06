@@ -32,7 +32,7 @@
                                     placeholder="Direccion" autocomplete="off">
                             </div>
                             <div class="btn-group" role="group" aria-label="crear-cliente">
-                                <button type="button" class="btn btn-primary mt-4">Crear</button>
+                                <button type="submit" class="btn btn-primary mt-4">Crear</button>
                             </div>
                         </form>
                     </div>
