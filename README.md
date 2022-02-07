@@ -21,4 +21,4 @@ Administrador/Perfil de Usuario).
 - Generación de al menos dos reportes.
 - Conexión con una base de datos.
 - Diseño responsivo.
-- Tener en cuenta aspectos de Seguridad, Accesibilidad, Usabilidad,
+- Tener en cuenta aspectos de Seguridad, Accesibilidad, Usabilidad.
