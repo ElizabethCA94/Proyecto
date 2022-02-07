@@ -5,7 +5,7 @@ En la rama develop se encuentran los commits realizados por los integrantes.
 
 Al momento de ejecutar el proyecto, si se generan problemas con el archivo vendor/autoload : Se corre composer update
 
-Si aparece 500 | server error : Se ejecutan lo siguiente:
+Si aparece 500 | server error : Se ejecuta lo siguiente:
 
 1. Se crea una copia de .env.example, se le cambie el nombre a dicha copia por .env y se cambia dentro del archivo DB_DATABASE=bd_laravel
 
