@@ -15,7 +15,7 @@ Si aparece 500 | server error : Se ejecutan lo siguiente:
 
 4. Y por ultimo php artisan key:generate
 
-5. Al ejecutar php artisan serve
+5. Ejecutar php artisan serve para que cargue de nuevo la aplicación sin errores
 
 
 
