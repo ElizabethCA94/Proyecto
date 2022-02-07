@@ -1,8 +1,9 @@
 # Proyecto Final
 
-En la rama develop se encuentran los commits realizados
+En la rama develop se encuentran los commits realizados por los integrantes.
 
-Al momento de ejecutar el proyecto, si se generan problemas con el archivo vednor/autoload : Se corre composer update
+
+Al momento de ejecutar el proyecto, si se generan problemas con el archivo vendor/autoload : Se corre composer update
 
 Si aparece 500 | server error : Se ejecutan lo siguiente:
 
