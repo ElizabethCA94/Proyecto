@@ -11,6 +11,9 @@
             <div class="col-md-12">
                 <div class="card card-default">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+
+                    <a href="{{ route('descargarPDFProductos')}}" class="btn btn-sm btn-primary">Descargar PDF</a>
+
                         <span class="card-title">Lista de productos</span>
                         <div class="float-right">
                             <a href="{{ route('productos.create') }}">

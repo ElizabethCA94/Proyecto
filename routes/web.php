@@ -34,6 +34,10 @@ use Illuminate\Support\Facades\Auth;
 
 // Route::get('ventas/add-producto', [VentasController::class, 'addProducto']);
 
+Route::get('/pdf', [App\Http\Controllers\PDFController::class, 'PDF'])->name('descargarPDF');
+
+Route::get('/pdfproductos', [App\Http\Controllers\PDFController::class, 'PDFProductos'])->name('descargarPDFProductos');
+
 Route::get('ruta', function(){
     return 'Puede ingresar';
 })->middleware('authorization');

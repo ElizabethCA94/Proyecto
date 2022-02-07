@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Producto extends Model
 {
+
+    
+
     use HasFactory;
     protected $table = 'productos';
     protected $primaryKey = 'id';
@@ -20,4 +23,7 @@ class Producto extends Model
     {
         return $this->hasOne(Categoria::class, 'id', 'categoria_id');
     }
+
+   
+    
 }
