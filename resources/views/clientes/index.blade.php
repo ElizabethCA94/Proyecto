@@ -5,6 +5,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-default">
+
+                    <a href="{{ route('users.excel) }}">DATOS EN EXCEL</a>
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <span class="card-title">Lista de clientes</span>
                         <div class="float-right">

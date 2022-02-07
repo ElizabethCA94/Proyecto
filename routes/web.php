@@ -38,6 +38,8 @@ Route::get('/pdf', [App\Http\Controllers\PDFController::class, 'PDF'])->name('de
 
 Route::get('/pdfproductos', [App\Http\Controllers\PDFController::class, 'PDFProductos'])->name('descargarPDFProductos');
 
+
+
 Route::get('ruta', function(){
     return 'Puede ingresar';
 })->middleware('authorization');

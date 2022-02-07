@@ -19,4 +19,6 @@ class PDFController extends Controller
         return $pdf->stream('reporteProductos.pdf');
         
     }
+
+    
 }
