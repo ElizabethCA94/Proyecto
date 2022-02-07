@@ -23,22 +23,16 @@ use Illuminate\Support\Facades\Auth;
 //     return view('welcome');
 // });
 
-Auth::routes();
-Route::middleware('auth')->group(function(){
-    Route::get('/', [ProductosController::class, 'index']);
-    Route::resource('clientes', ClientesController::class);
-    Route::resource('ventas', VentasController::class);
-    Route::resource('productos', ProductosController::class);
-});
+// Auth::routes();
+// Route::middleware('auth')->group(function(){
+//     Route::get('/', [ProductosController::class, 'index']);
+//     Route::resource('clientes', ClientesController::class);
+//     Route::resource('ventas', VentasController::class);
+//     Route::resource('productos', ProductosController::class);
+// });
 
 
 // Route::get('ventas/add-producto', [VentasController::class, 'addProducto']);
-
-
-
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('ruta', function(){
     return 'Puede ingresar';
