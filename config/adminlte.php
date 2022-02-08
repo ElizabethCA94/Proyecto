@@ -251,44 +251,44 @@ return [
         [
             'text' => 'API',
             'route'  => 'admin.home',
-            'icon' => 'fas fa-fw fa-home'
-        ],
-        [
-            'text' => 'Usuarios',
-            'route'  => 'admin.users.index',
-            'icon' => 'fas fa-fw fa-home'
+            'icon' => 'fas fa-fw fa-home',
+            'can' => 'admin.home'
         ],
         [
             'text' => 'Productos',
             'route'  => 'admin.productos.index',
-            'icon' => 'fas fa-fw fa-home'
+            'icon' => 'fas fa-fw fa-home',
+            'can' => 'admin.productos.index'
         ],
         [
             'text' => 'Categorias',
             'route'  => 'admin.categoria.index',
-            'icon' => 'fas fa-fw fa-home'
+            'icon' => 'fas fa-fw fa-home',
+            'can' => 'admin.categorias.index'
         ],
         [
             'text' => 'Clientes',
             'route'  => 'admin.clientes.index',
-            'icon' => 'fas fa-fw fa-home'
+            'icon' => 'fas fa-fw fa-home',
+            'can' => 'admin.clientes.index'
         ],
         [
             'text' => 'Ventas',
             'route'  => 'admin.ventas.index',
-            'icon' => 'fas fa-fw fa-home'
+            'icon' => 'fas fa-fw fa-home',
+            'can' => 'admin.ventas.index'
         ],
-        ['header' => 'INFORMACIÓN DEL PERFIL'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+        // ['header' => 'INFORMACIÓN DEL PERFIL'],
+        // [
+        //     'text' => 'profile',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+        // [
+        //     'text' => 'change_password',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
     ],
 
     /*

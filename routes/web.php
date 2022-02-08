@@ -5,6 +5,8 @@ use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\VentasController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\HomeController;
+
 
 
 
@@ -48,16 +50,16 @@ Route::get('ruta_verficacion', function(){
     return 'No se puede ingresar, ruta protegida';
 });
 //dani
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes();
 Route::resource('categorias', App\Http\Controllers\CategoriaController::class)->middleware('auth');
 Route::resource('clientes', ClientesController::class)->middleware('auth')->middleware('proteccion');
 Route::resource('ventas', VentasController::class)->middleware('auth');
 Route::resource('productos', ProductosController::class)->middleware('auth');
-// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('admin.home');
 
 // Route::middleware('proteccion')->group(function(){
 //     // Route::get('/', [ProductosController::class, 'index']);
