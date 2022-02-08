@@ -64,7 +64,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     Route::get('/clientes/create');
 //     // Route::resource('ventas', VentasController::class);
 //     // Route::resource('productos', ProductosController::class);
-// });
-Auth::routes();
+// // });
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
