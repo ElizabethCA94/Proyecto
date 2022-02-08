@@ -1,4 +1,17 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title', 'Clientes')
+
+@section('plugins.bootstrapSwitch', true)
+@section('plugins.bootstrapColorpicker', true)
+@section('plugins.bootstrap4DualListbox', true)
+@section('plugins.bootstrapSlider', true)
+@section('plugins.datatables', true)
+@section('plugins.datatablesPlugins', true)
+
+@section('content_header')
+    <h1>Clientes</h1>
+@stop
 
 @section('content')
     <section class="content container">
@@ -8,7 +21,7 @@
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <span class="card-title">Lista de clientes</span>
                         <div class="float-right">
-                            <a href="{{ route('clientes.create') }}">
+                            <a href="{{ route('admin.clientes.create') }}">
                                 <button class="btn btn-success btn-sm my-1 mb-3 float-right">
                                     Crear
                                 </button>
@@ -39,14 +52,14 @@
                                             <td>
                                                 <div class="d-flex justify-content-sm-center">
                                                     <div class="btn-group" role="group" aria-label="editar-cliente">
-                                                        <a href="{{ route('clientes.edit', $cliente->id) }}">
+                                                        <a href="{{ route('admin.clientes.edit', $cliente->id) }}">
                                                             <button class="btn btn-primary btn-sm">
                                                                 Editar
                                                             </button>
                                                         </a>
                                                     </div>
                                                     <div class="btn-group" role="group" aria-label="eliminar-cliente">
-                                                        <form action="{{ route('clientes.destroy', $cliente->id) }}"
+                                                        <form action="{{ route('admin.clientes.destroy', $cliente->id) }}"
                                                             method="post">
                                                             @method('DELETE')
                                                             @csrf
@@ -67,4 +80,23 @@
             </div>
         </div>
     </section>
-@endsection
+    @stop
+
+    @section('css')
+        <link rel="stylesheet" href="/css/admin_custom.css">
+        {{-- <link rel="stylesheet" href="/css/app.css"> --}}
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+    
+    @stop
+    
+    @section('js')
+        <script>
+            < script src = "{{ asset('js/app.js') }}"
+            defer >
+        </script>
+    
+        </script>
+    @stop
+

@@ -33,7 +33,7 @@
                             <tr>
                                 {{-- <div class="card-body"> --}}
                                     <div class="table-responsive">
-                                        <table class="table table-striped table-hover mx-3" style="justify-content: space-between; align-items: center;" >
+                                        <table class="table table-striped table-hover" style="justify-content: space-between; align-items: center; width=60%" >
                                             <td>{{ $datos['result']['target'] }}</td>
                                             <td>{{ $datos['result']['value'] }}</td>
                                             <td>{{ $datos['result']['updated'] }}</td>

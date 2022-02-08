@@ -1,4 +1,17 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title', 'Clientes')
+
+@section('plugins.bootstrapSwitch', true)
+@section('plugins.bootstrapColorpicker', true)
+@section('plugins.bootstrap4DualListbox', true)
+@section('plugins.bootstrapSlider', true)
+@section('plugins.datatables', true)
+@section('plugins.datatablesPlugins', true)
+
+@section('content_header')
+    <h1>Clientes</h1>
+@stop
 
 @section('content')
     <section class="content container">
@@ -9,7 +22,7 @@
                         <div class="card-title text-center">Creación de clientes</div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('clientes.store') }}" method="POST">
+                        <form action="{{ route('admin.clientes.store') }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label for="nombre"></label>
@@ -40,4 +53,23 @@
             </div>
         </div>
     </section>
-@endsection
+    @stop
+
+    @section('css')
+        <link rel="stylesheet" href="/css/admin_custom.css">
+        {{-- <link rel="stylesheet" href="/css/app.css"> --}}
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+    
+    @stop
+    
+    @section('js')
+        <script>
+            < script src = "{{ asset('js/app.js') }}"
+            defer >
+        </script>
+    
+        </script>
+    @stop
+

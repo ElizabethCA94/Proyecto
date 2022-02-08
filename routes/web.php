@@ -48,16 +48,16 @@ Route::get('ruta_verficacion', function(){
     return 'No se puede ingresar, ruta protegida';
 });
 //dani
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 Route::resource('categorias', App\Http\Controllers\CategoriaController::class)->middleware('auth');
 Route::resource('clientes', ClientesController::class)->middleware('auth')->middleware('proteccion');
 Route::resource('ventas', VentasController::class)->middleware('auth');
 Route::resource('productos', ProductosController::class)->middleware('auth');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Route::middleware('proteccion')->group(function(){
 //     // Route::get('/', [ProductosController::class, 'index']);
