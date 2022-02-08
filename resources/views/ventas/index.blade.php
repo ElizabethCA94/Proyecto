@@ -6,7 +6,10 @@
             <div class="col-md-12">
                 <div class="card card-default">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
-                        <span class="card-title">Lista de ventas</span>
+                    
+                      
+                    
+                    <span class="card-title">Lista de ventas</span>
                         <div class="float-right">
                             <a href="{{ route('ventas.create') }}">
                                 <button class="btn btn-success btn-sm my-1 mb-3">

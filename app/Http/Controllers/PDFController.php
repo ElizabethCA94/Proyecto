@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use PDF;
 use App\Models\Producto;
+use App\Models\Cliente;
+
 
 class PDFController extends Controller
 {
     public function PDF(){
-        $pdf = \PDF::loadView('prueba');
+        $clientes = Cliente::all();
+        $pdf = \PDF::loadView('clientes', compact('clientes'));
         return $pdf->stream('reporteProductos.pdf');
     }
 

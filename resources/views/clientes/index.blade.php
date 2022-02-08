@@ -6,9 +6,12 @@
             <div class="col-md-12">
                 <div class="card card-default">
 
-                    <a href="{{ route('users.excel) }}">DATOS EN EXCEL</a>
+                    
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
-                        <span class="card-title">Lista de clientes</span>
+                    
+                    <a href="{{ route('descargarPDF')}}" class="btn btn-sm btn-primary">Descargar PDF</a>  
+                    
+                    <span class="card-title">Lista de clientes</span>
                         <div class="float-right">
                             <a href="{{ route('clientes.create') }}">
                                 <button class="btn btn-success btn-sm my-1 mb-3 float-right">
