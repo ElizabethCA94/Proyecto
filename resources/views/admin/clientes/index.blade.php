@@ -19,9 +19,13 @@
             <div class="col-md-12">
                 <div class="card card-default">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                        <a href="{{ route('descargarPDF')}}" class="btn btn-sm btn-primary">Descargar PDF</a>
+
                         <span class="card-title">Lista de clientes</span>
                         <div class="float-right">
+                            @can('admin.clientes.create')
                             <a href="{{ route('admin.clientes.create') }}">
+                            @endcan
                                 <button class="btn btn-success btn-sm my-1 mb-3 float-right">
                                     Crear
                                 </button>
@@ -52,17 +56,21 @@
                                             <td>
                                                 <div class="d-flex justify-content-sm-center">
                                                     <div class="btn-group" role="group" aria-label="editar-cliente">
+                                                        @can('admin.clientes.edit')
                                                         <a href="{{ route('admin.clientes.edit', $cliente->id) }}">
+                                                        @endcan
                                                             <button class="btn btn-primary btn-sm">
                                                                 Editar
                                                             </button>
                                                         </a>
                                                     </div>
                                                     <div class="btn-group" role="group" aria-label="eliminar-cliente">
+                                                    @can('admin.clientes.destroy')
                                                         <form action="{{ route('admin.clientes.destroy', $cliente->id) }}"
                                                             method="post">
                                                             @method('DELETE')
                                                             @csrf
+                                                            @endcan
                                                             <button type="submit" class="btn btn-danger btn-sm mx-1">
                                                                 Eliminar
                                                             </button>

@@ -19,9 +19,7 @@
             <div class="col-md-12">
                 <div class="card card-default">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
-
-                    <a href="{{ route('descargarPDFProductos')}}" class="btn btn-sm btn-primary">Descargar PDF</a>
-
+                        <a href="{{ route('descargarPDFProductos') }}" class="btn btn-sm btn-primary">Descargar PDF</a>
                         <span class="card-title">Lista de productos</span>
                         <div class="float-right">
                             <a href="{{ route('admin.productos.create') }}">
@@ -56,51 +54,54 @@
                                                     <img src="/imagen/{{ $producto->categoria->nombre }}" width="60%">
                                                 <td> --}}
                                                 <td>{{ $producto->categoria->nombre }}</td>
-                                                    <div class="d-flex justify-content-sm-center">
+                                                <div class="d-flex justify-content-sm-center">
+                                                    @can('admin.productos.edit')
                                                         <a href="{{ route('admin.productos.edit', $producto->id) }}">
-                                                            <button class="btn btn-primary btn-sm">
-                                                                Editar
-                                                            </button>
-                                                        </a>
+                                                        @endcan
+                                                        <button class="btn btn-primary btn-sm">
+                                                            Editar
+                                                        </button>
+                                                    </a>
+                                                    @can('admin.productos.destroy')
                                                         <form action="{{ route('admin.productos.destroy', $producto->id) }}"
                                                             method="post">
                                                             @method('DELETE')
                                                             @csrf
+                                                            @endcan
                                                             <button type="submit" class="btn btn-danger btn-sm mx-1">
                                                                 Eliminar
                                                             </button>
                                                         </form>
                                                     </div>
-                                                </td>
-                                            </table>
+                                                    </td>
+                                                </table>
+                                            </div>
                                         </div>
-                                    </div>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
-        </div>
-        </div>
-    </section>
+            </div>
+            </div>
+        </section>
     @stop
-    @section('css')
-        <link rel="stylesheet" href="/css/admin_custom.css">
-        {{-- <link rel="stylesheet" href="/css/app.css"> --}}
-        <link rel="dns-prefetch" href="//fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-        {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-    
-    @stop
-    
-    @section('js')
-        <script>
-            < script src = "{{ asset('js/app.js') }}"
-            defer >
-        </script>
-    
-        </script>
-    @stop
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+    {{-- <link rel="stylesheet" href="/css/app.css"> --}}
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 
+@stop
+
+@section('js')
+    <script>
+        < script src = "{{ asset('js/app.js') }}"
+        defer >
+    </script>
+
+    </script>
+@stop

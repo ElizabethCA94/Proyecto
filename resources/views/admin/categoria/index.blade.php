@@ -13,8 +13,10 @@
                             </span>
 
                             <div class="float-right">
+                                @can('admin.categorias.create')
                                 <a href="{{ route('categorias.create') }}" class="btn btn-primary btn-sm float-right"
                                     data-placement="left">
+                                @endcan
                                     {{ __('Create New') }}
                                 </a>
                             </div>
@@ -44,16 +46,23 @@
                                             <td>{{ $categoria->nombre }}</td>
 
                                             <td>
+                                                @can('admin.categorias.destroy')
                                                 <form action="{{ route('categorias.destroy', $categoria->id) }}"
                                                     method="POST">
+                                                @endcan
                                                     <a class="btn btn-sm btn-primary "
+                                                    @can('admin.categorias.show')
                                                         href="{{ route('categorias.show', $categoria->id) }}"><i
                                                             class="fa fa-fw fa-eye"></i> Show</a>
+                                                    @endcan
                                                     <a class="btn btn-sm btn-success"
+                                                    @can('admin.categorias.edit')
                                                         href="{{ route('categorias.edit', $categoria->id) }}"><i
                                                             class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    
                                                     @csrf
                                                     @method('DELETE')
+                                                    @endcan
                                                     <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
                                                 </form>
                                             </td>
