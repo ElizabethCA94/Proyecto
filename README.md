@@ -1,14 +1,16 @@
 # Proyecto Final
 
-En la rama develop se encuentran los commits realizados
+Se utiliza adminlte para la plantilla de dashboard y para controlar el acceso de los roles 
 
-Integrantes: 
+1. composer require jeroennoten/laravel-adminlte
 
-Elizabeth Carreño Alvarez
+2. php artisan adminlte:install
 
-Daniel Santiago Gaviria
+3. composer require laravel/ui
 
-Maria Camila Martinez
+php artisan ui bootstrap --auth
+
+4. php artisan adminlte:install --only=auth_views
 
 La aplicación debe tener mínimo las siguientes funcionalidades o características:
 - Formulario para registro de usuarios.
