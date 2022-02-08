@@ -1,48 +1,69 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title', 'API')
+
+@section('plugins.bootstrapSwitch', true)
+@section('plugins.bootstrapColorpicker', true)
+@section('plugins.bootstrap4DualListbox', true)
+@section('plugins.bootstrapSlider', true)
+@section('plugins.datatables', true)
+@section('plugins.datatablesPlugins', true)
+
+@section('content_header')
+    <h1>Consumo API Cambio.Today</h1>
+@stop
 
 @section('content')
-this is the request
-{{-- {{ $request }} --}}
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Tabla para calcular el precio de los productos en otras monedas') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <table class="table text-center">
-  <thead>
-    <tr>
-        <td colspan="3" style="background-color: #3569DF; color: #ffffff"><strong>Valor del dolar y euro en Colombia</strong></td>
-    </tr>
-    
-    <tr>
-      <th>FECHA</th>
-      <th>DOLAR</thscope=>
-      <th>EURO</thscope=>
-     
-    </tr>
-      
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>{{ $dolar ['fecha']}}</th>
-      <td>{{ $dolar ['dolar']['valor']}}</td>
-      <td>{{ $dolar ['euro']['valor']}}</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+    <section class="content container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-default">
+                    <div class="card-header">
+                        <div class="card-title text-center">Precio del dolar en Colombia</div>
+                    </div>
+                    <table class="table table-striped nt-3" >
+                        <thead>
+                            <tr>
+                                <th>DIVISA</th>
+                                <th>VALOR</th>
+                                <th>FECHA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                {{-- <div class="card-body"> --}}
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover mx-3" style="justify-content: space-between; align-items: center;" >
+                                            <td>{{ $datos['result']['target'] }}</td>
+                                            <td>{{ $datos['result']['value'] }}</td>
+                                            <td>{{ $datos['result']['updated'] }}</td>
+                                        </table>
+                                    </div>
+                                {{-- </div> --}}
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-@endsection
+    </section>
+
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+    {{-- <link rel="stylesheet" href="/css/app.css"> --}}
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+
+@stop
+
+@section('js')
+    <script>
+        < script src = "{{ asset('js/app.js') }}"
+        defer >
+    </script>
+
+    </script>
+@stop

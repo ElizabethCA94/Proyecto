@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Http;
 
 class HomeController extends Controller
 {
@@ -24,8 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $respuesta=Http::get('https://mindicador.cl/api');
-        $dolar = $respuesta->json();
-        return view('home', compact('dolar'));
+        return view('home');
     }
 }
