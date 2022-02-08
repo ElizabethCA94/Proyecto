@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cliente;
+use GuzzleHttp\Middleware;
 
 class ClientesController extends Controller
 {
@@ -12,6 +13,13 @@ class ClientesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('can:admin.clientes.index')->only('index');
+        $this->middleware('can:admin.clientes.edit')->only('edit', 'update');
+
+    }
     public function index()
     {
         $clientes = Cliente::all();

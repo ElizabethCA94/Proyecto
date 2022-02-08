@@ -17,6 +17,12 @@ class CategoriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('can:admin.categorias.index')->only('index');
+        $this->middleware('can:admin.categorias.edit')->only('edit', 'update');
+
+    }
     public function index()
     {
         $categorias = Categoria::paginate();

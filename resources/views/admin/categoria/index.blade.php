@@ -1,70 +1,75 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title', 'Categorias')
+
+@section('plugins.bootstrapSwitch', true)
+@section('plugins.bootstrapColorpicker', true)
+@section('plugins.bootstrap4DualListbox', true)
+@section('plugins.bootstrapSlider', true)
+@section('plugins.datatables', true)
+@section('plugins.datatablesPlugins', true)
+
+@section('content_header')
+    <h1>Categorias</h1>
+@stop
 
 @section('content')
-    <div class="content container">
+    <section class="content container">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="col-md-12">
+                <div class="card card-default">
+                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                        <a href="{{ route('descargarPDF')}}" class="btn btn-sm btn-primary">Descargar PDF</a>
 
-                            <span id="card_title">
-                                {{ __('Lista de categorias') }}
-                            </span>
-
-                            <div class="float-right">
-                                @can('admin.categorias.create')
-                                <a href="{{ route('categorias.create') }}" class="btn btn-primary btn-sm float-right"
-                                    data-placement="left">
-                                @endcan
-                                    {{ __('Create New') }}
-                                </a>
-                            </div>
+                        <span class="card-title">Lista de categorias</span>
+                        <div class="float-right">
+                            @can('admin.categorias.create')
+                            <a href="{{ route('categorias.create') }}">
+                            @endcan
+                                <button class="btn btn-success btn-sm my-1 mb-3 float-right">
+                                    Crear
+                                </button>
+                            </a>
                         </div>
                     </div>
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @endif
-
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
-                                <thead class="thead">
+                                <thead>
                                     <tr>
                                         <th>#</th>
                                         <th>Nombre</th>
-                                        <th>Operaciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($categorias as $categoria)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-
+                                            <td>{{ $loop->iteration }}</td>
                                             <td>{{ $categoria->nombre }}</td>
-
                                             <td>
-                                                @can('admin.categorias.destroy')
-                                                <form action="{{ route('categorias.destroy', $categoria->id) }}"
-                                                    method="POST">
-                                                @endcan
-                                                    <a class="btn btn-sm btn-primary "
-                                                    @can('admin.categorias.show')
-                                                        href="{{ route('categorias.show', $categoria->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i> Show</a>
-                                                    @endcan
-                                                    <a class="btn btn-sm btn-success"
-                                                    @can('admin.categorias.edit')
-                                                        href="{{ route('categorias.edit', $categoria->id) }}"><i
-                                                            class="fa fa-fw fa-edit"></i> Edit</a>
-                                                    
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    @endcan
-                                                    <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
-                                                </form>
+                                                <div class="d-flex justify-content-sm-center">
+                                                    <div class="btn-group" role="group" aria-label="editar-categoria">
+                                                        @can('admin.categorias.edit')
+                                                        <a href="{{ route('categorias.edit', $categoria->id) }}">
+                                                        @endcan
+                                                            <button class="btn btn-primary btn-sm">
+                                                                Editar
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="eliminar-categoria">
+                                                    @can('admin.categorias.destroy')
+                                                        <form action="{{ route('categorias.destroy', $categoria->id) }}"
+                                                            method="post">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            @endcan
+                                                            <button type="submit" class="btn btn-danger btn-sm mx-1">
+                                                                Eliminar
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -73,8 +78,26 @@
                         </div>
                     </div>
                 </div>
-                {!! $categorias->links() !!}
             </div>
         </div>
-    </div>
-@endsection
+    </section>
+    @stop
+
+    @section('css')
+        <link rel="stylesheet" href="/css/admin_custom.css">
+        {{-- <link rel="stylesheet" href="/css/app.css"> --}}
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+    
+    @stop
+    
+    @section('js')
+        <script>
+            < script src = "{{ asset('js/app.js') }}"
+            defer >
+        </script>
+    
+        </script>
+    @stop
+

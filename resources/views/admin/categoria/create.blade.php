@@ -17,19 +17,21 @@
     <section class="content container">
         <div class="row">
             <div class="col-md-12">
-
-                @includeif('partials.errors')
-
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title text-center">Crear Categoria</span>
+                        <div class="card-title text-center">Creación de categorias</div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.categorias.store') }}"  role="form" enctype="multipart/form-data" autocomplete="off">
+                        <form action="{{ route('admin.categorias.store') }}" method="POST">
                             @csrf
-
-                            @include('categoria.form')
-
+                            <div class="form-group">
+                                <label for="nombre"></label>
+                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre"
+                                    autocomplete="off">
+                            </div>
+                            <div class="btn-group" role="group" aria-label="crear-categoria">
+                                <button type="submit" class="btn btn-primary mt-4">Crear</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -55,3 +57,4 @@
     
         </script>
     @stop
+

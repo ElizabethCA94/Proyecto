@@ -15,6 +15,13 @@ class ProductosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('can:admin.productos.index')->only('index');
+        $this->middleware('can:admin.productos.edit')->only('edit', 'update');
+        $this->middleware('can:admin.productos.create')->only('create', 'store');
+        $this->middleware('can:admin.productos.destroy')->only('destroy');
+    }
     public function index()
     {
         $productos = Producto::all();
