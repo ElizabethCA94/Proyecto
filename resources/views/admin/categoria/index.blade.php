@@ -18,9 +18,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-default">
-                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
-                        <a href="{{ route('descargarPDF')}}" class="btn btn-sm btn-primary">Descargar PDF</a>
-
+                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">0
                         <span class="card-title">Lista de categorias</span>
                         <div class="float-right">
                             @can('admin.categorias.create')
