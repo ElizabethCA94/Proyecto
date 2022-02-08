@@ -12,6 +12,8 @@ php artisan ui bootstrap --auth
 
 4. php artisan adminlte:install --only=auth_views
 
+Para roles y permisos Instalamos composer require spatie/laravel-permission
+
 La aplicación debe tener mínimo las siguientes funcionalidades o características:
 - Formulario para registro de usuarios.
 - Formulario para autenticación.
