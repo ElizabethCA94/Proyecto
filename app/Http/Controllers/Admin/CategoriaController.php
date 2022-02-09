@@ -107,7 +107,7 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        $categoria = Categoria::find($id)->delete();
+        Categoria::find($id)->delete();
 
         return redirect()->route('admin.categoria.index')
             ->with('success', 'Categoria deleted successfully');

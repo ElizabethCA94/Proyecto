@@ -31,9 +31,9 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{{ $datos['result']['target'] }}</td>
+                                {{-- <td>{{ $datos['result']['target'] }}</td>
                                 <td>{{ $datos['result']['value'] }}</td>
-                                <td>{{ $datos['result']['updated'] }}</td>
+                                <td>{{ $datos['result']['updated'] }}</td> --}}
                             </tr>
                         </tbody>
                     </table>

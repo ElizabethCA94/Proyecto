@@ -57,15 +57,16 @@
                                                     </div>
                                                     <div class="btn-group" role="group" aria-label="eliminar-categoria">
                                                     @can('admin.categorias.destroy')
-                                                        <form action="{{ route('categorias.destroy', $categoria->id) }}"
+                                                        <form action="{{ route('admin.categoria.destroy', $categoria->id) }}"
                                                             method="post">
                                                             @method('DELETE')
                                                             @csrf
-                                                            @endcan
+                                                            
                                                             <button type="submit" class="btn btn-danger btn-sm mx-1">
                                                                 Eliminar
                                                             </button>
                                                         </form>
+                                                        @endcan
                                                     </div>
                                                 </div>
                                             </td>
