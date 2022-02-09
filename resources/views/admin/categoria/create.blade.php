@@ -22,7 +22,7 @@
                         <div class="card-title text-center">Creación de categorias</div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('admin.categorias.store') }}" method="POST">
+                        <form action="{{ route('admin.categoria.store') }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label for="nombre"></label>

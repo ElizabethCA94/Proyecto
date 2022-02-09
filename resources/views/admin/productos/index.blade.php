@@ -20,7 +20,6 @@
                 <div class="card card-default">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <a href="{{ route('descargarPDFProductos') }}" class="btn btn-sm btn-primary">Descargar PDF</a>
-                        <span class="card-title">Lista de productos</span>
                         <div class="float-right">
                             <a href="{{ route('admin.productos.create') }}">
                                 <button class="btn btn-success btn-sm my-1 mb-3">
@@ -29,54 +28,51 @@
                             </a>
                         </div>
                     </div>
-                    <table class="table table-striped nt-4">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Nombre</th>
-                                <th>Descripcion</th>
-                                <th>Precio</th>
-                                <th>Categoria</th>
-                                <th>Opciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($productos as $producto)
+                    <span class="card-title">Lista de productos</span>
+                    <div class="table-responsive">
+                        <table class="table table-striped nt-4">
+                            <thead>
                                 <tr>
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table table-striped table-hover">
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $producto->nombre }}</td>
-                                                <td>{{ $producto->descripcion }}</td>
-                                                <td>{{ $producto->precio }}</td>
-                                                {{-- <td>
-                                                    <img src="/imagen/{{ $producto->categoria->nombre }}" width="60%">
-                                                <td> --}}
-                                                <td>{{ $producto->categoria->nombre }}</td>
-                                                <div class="d-flex justify-content-sm-center">
-                                                    @can('admin.productos.edit')
-                                                        <a href="{{ route('admin.productos.edit', $producto->id) }}">
-                                                        @endcan
+                                    <th>#</th>
+                                    <th>Nombre</th>
+                                    <th>Descripcion</th>
+                                    <th>Precio</th>
+                                    <th>Categoria</th>
+                                    <th>Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($productos as $producto)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $producto->nombre }}</td>
+                                        <td>{{ $producto->descripcion }}</td>
+                                        <td>{{ $producto->precio }}</td>
+                                        {{-- <td>
+                                                        <img src="/imagen/{{ $producto->categoria->nombre }}" width="60%">
+                                                    <td> --}}
+                                        <td>{{ $producto->categoria->nombre }}</td>
+                                        <td>
+                                            <div class="d-flex justify-content-sm-center">
+                                                @can('admin.productos.edit')
+                                                    <a href="{{ route('admin.productos.edit', $producto->id) }}">
                                                         <button class="btn btn-primary btn-sm">
                                                             Editar
                                                         </button>
                                                     </a>
-                                                    @can('admin.productos.destroy')
-                                                        <form action="{{ route('admin.productos.destroy', $producto->id) }}"
-                                                            method="post">
-                                                            @method('DELETE')
-                                                            @csrf
-                                                            @endcan
-                                                            <button type="submit" class="btn btn-danger btn-sm mx-1">
-                                                                Eliminar
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                    </td>
-                                                </table>
+                                                @endcan
+                                                @can('admin.productos.destroy')
+                                                    <form action="{{ route('admin.productos.destroy', $producto->id) }}"
+                                                        method="post">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                    @endcan
+                                                    <button type="submit" class="btn btn-danger btn-sm mx-1">
+                                                        Eliminar
+                                                    </button>
+                                                </form>
                                             </div>
-                                        </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -84,10 +80,9 @@
                     </div>
                 </div>
             </div>
-            </div>
-            </div>
-        </section>
-    @stop
+        </div>
+    </section>
+@stop
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
     {{-- <link rel="stylesheet" href="/css/app.css"> --}}

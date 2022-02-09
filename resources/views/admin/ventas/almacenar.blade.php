@@ -26,7 +26,7 @@
                             @csrf
                         <div class="form-group pt-2">
                             <label for="cliente_id">Cliente</label>
-                            <select class="form-select" aria-label="cliente" name="cliente_id" id="cliente_id" required>
+                            <select class="custom-select" aria-label="cliente" name="cliente_id" id="cliente_id" required>
                                 @foreach ($clientes as $cliente)
                                     <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
                                 @endforeach
@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group">
                             <label for="productoIds">Productos</label>
-                            <select class="form-select" aria-label="productos" multiple name="productoIds[]" id="productoIds" required>
+                            <select class="custom-select" aria-label="productos" multiple name="productoIds[]" id="productoIds" required>
                                 @foreach ($productos as $producto)
                                     <option value="{{ $producto->id }}">{{ $producto->nombre }}</option>
                                 @endforeach

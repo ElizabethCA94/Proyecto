@@ -38,8 +38,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        $categoria = new Categoria();
-        return view('admin.categoria.create', compact('categoria'));
+        return view('admin.categoria.create');
     }
 
     /**
@@ -52,7 +51,7 @@ class CategoriaController extends Controller
     {
         request()->validate(Categoria::$rules);
 
-        $categoria = Categoria::create($request->all());
+        Categoria::create($request->all());
 
         return redirect()->route('admin.categoria.index')
             ->with('success', 'Categoria created successfully.');

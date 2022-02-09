@@ -48,7 +48,7 @@ class CategoriaController extends Controller
 
         $categoria = Categoria::create($request->all());
 
-        return redirect()->route('categoria.index')
+        return redirect()->route('admin.categoria.index')
             ->with('success', 'Categoria created successfully.');
     }
 

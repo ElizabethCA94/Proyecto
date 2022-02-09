@@ -18,16 +18,16 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-default">
-                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">0
+                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <span class="card-title">Lista de categorias</span>
                         <div class="float-right">
                             @can('admin.categorias.create')
-                            <a href="{{ route('categorias.create') }}">
+                                <a href="{{ route('admin.categoria.create') }}">
+                                    <button class="btn btn-success btn-sm my-1 mb-3 float-right">
+                                        Crear
+                                    </button>
+                                </a>
                             @endcan
-                                <button class="btn btn-success btn-sm my-1 mb-3 float-right">
-                                    Crear
-                                </button>
-                            </a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -48,12 +48,12 @@
                                                 <div class="d-flex justify-content-sm-center">
                                                     <div class="btn-group" role="group" aria-label="editar-categoria">
                                                         @can('admin.categorias.edit')
-                                                        <a href="{{ route('categorias.edit', $categoria->id) }}">
+                                                            <a href="{{ route('admin.categoria.edit', $categoria->id) }}">
+                                                                <button class="btn btn-primary btn-sm">
+                                                                    Editar
+                                                                </button>
+                                                            </a>
                                                         @endcan
-                                                            <button class="btn btn-primary btn-sm">
-                                                                Editar
-                                                            </button>
-                                                        </a>
                                                     </div>
                                                     <div class="btn-group" role="group" aria-label="eliminar-categoria">
                                                     @can('admin.categorias.destroy')
@@ -79,23 +79,23 @@
             </div>
         </div>
     </section>
-    @stop
+@stop
 
-    @section('css')
-        <link rel="stylesheet" href="/css/admin_custom.css">
-        {{-- <link rel="stylesheet" href="/css/app.css"> --}}
-        <link rel="dns-prefetch" href="//fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-        {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-    
-    @stop
-    
-    @section('js')
-        <script>
-            < script src = "{{ asset('js/app.js') }}"
-            defer >
-        </script>
-    
-        </script>
-    @stop
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+    {{-- <link rel="stylesheet" href="/css/app.css"> --}}
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+
+@stop
+
+@section('js')
+    <script>
+        < script src = "{{ asset('js/app.js') }}"
+        defer >
+    </script>
+
+    </script>
+@stop
 
