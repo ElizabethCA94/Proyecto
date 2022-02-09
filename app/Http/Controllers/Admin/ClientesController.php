@@ -18,6 +18,9 @@ class ClientesController extends Controller
     {
         $this->middleware('can:admin.clientes.index')->only('index');
         $this->middleware('can:admin.clientes.edit')->only('edit', 'update');
+        $this->middleware('can:admin.clientes.create')->only('create', 'store');
+        $this->middleware('can:admin.clientes.show')->only('show');
+        $this->middleware('can:admin.clientes.destroy')->only('destroy');
 
     }
     public function index()
@@ -65,7 +68,8 @@ class ClientesController extends Controller
      */
     public function show($id)
     {
-        //
+        $cliente = Cliente::find($id);
+        return view('admin.clientes.mostrar', compact('cliente'));
     }
 
     /**

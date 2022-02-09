@@ -56,6 +56,15 @@
                                                             </a>
                                                         @endcan
                                                     </div>
+                                                    <div class="btn-group" role="group" aria-label="ver-categoria">
+                                                        @can('admin.categorias.show')
+                                                            <a href="{{ route('admin.categoria.show', $categoria->id) }}">
+                                                                <button class="btn btn-success btn-sm mx-1">
+                                                                    Mostrar
+                                                                </button>
+                                                            </a>
+                                                        @endcan
+                                                    </div>
                                                     <div class="btn-group" role="group" aria-label="eliminar-categoria">
                                                     @can('admin.categorias.destroy')
                                                         <form action="{{ route('admin.categoria.destroy', $categoria->id) }}"

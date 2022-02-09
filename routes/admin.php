@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('', [HomeController::class, 'index'])->middleware('can:admin.home')->name('admin.home');
 Route::resource('users', UserController::class)->names('admin.users');
 Route::resource('categorias',CategoriaController::class)->names('admin.categoria');
-Route::resource('clientes', ClientesController::class)->only(['index','create','store','edit','update','destroy'])->names('admin.clientes');
+Route::resource('clientes', ClientesController::class)->names('admin.clientes');
 Route::resource('ventas', VentasController::class)->names('admin.ventas');
 Route::resource('productos', ProductosController::class)->names('admin.productos');
 Route::get('pdf', [PDFController::class, 'PDF'])->name('admin.descargarPDF');

@@ -21,11 +21,13 @@
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <span class="card-title">Lista de ventas</span>
                         <div class="float-right">
-                            <a href="{{ route('admin.ventas.create') }}">
-                                <button class="btn btn-success btn-sm my-1 mb-3">
-                                    Crear
-                                </button>
-                            </a>
+                            @can('admin.ventas.create')
+                                <a href="{{ route('admin.ventas.create') }}">
+                                    <button class="btn btn-success btn-sm my-1 mb-3">
+                                        Crear
+                                    </button>
+                                </a>
+                            @endcan
                         </div>
                     </div>
                     @foreach ($ventas as $venta)
@@ -40,6 +42,13 @@
                                                 <a href="{{ route('admin.ventas.edit', $venta->id) }}">
                                                     <button class="btn btn-primary btn-sm">
                                                         Editar
+                                                    </button>
+                                                </a>
+                                            @endcan
+                                            @can('admin.ventas.show')
+                                                <a href="{{ route('admin.ventas.show', $venta->id) }}">
+                                                    <button class="btn btn-success btn-sm mx-1">
+                                                        Mostrar
                                                     </button>
                                                 </a>
                                             @endcan
@@ -74,6 +83,17 @@
                                                                     <a href="{{ route('admin.ventas.edit', $venta->id) }}">
                                                                         <button class="btn btn-primary btn-sm">
                                                                             Editar
+                                                                        </button>
+                                                                    </a>
+                                                                @endcan
+                                                            </div>
+                                                            <div class="btn-group" role="group"
+                                                                aria-label="ver-venta">
+                                                                @can('admin.ventas.show')
+                                                                    <a
+                                                                        href="{{ route('admin.ventas.show', $venta->id) }}">
+                                                                        <button class="btn btn-success btn-sm mx-1">
+                                                                            Mostrar
                                                                         </button>
                                                                     </a>
                                                                 @endcan

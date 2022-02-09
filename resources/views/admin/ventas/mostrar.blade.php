@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Categorias')
+@section('title', 'Ventas')
 
 @section('plugins.bootstrapSwitch', true)
 @section('plugins.bootstrapColorpicker', true)
@@ -10,7 +10,7 @@
 @section('plugins.datatablesPlugins', true)
 
 @section('content_header')
-    <h1>Categorias</h1>
+    <h1>Ventas</h1>
 @stop
 
 @section('content')
@@ -19,14 +19,22 @@
             <div class="col-md-12">
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title text-center">Mostrar categoria</span>
+                        <span class="card-title text-center">Mostrar venta</span>
                     </div>
                     <div class="card-body">
                         <form enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="nombre">Nombre</label>
-                                <input type="text" class="form-control" name="nombre" id="nombre" disabled value={{ $categoria->nombre }}>
+                                <label for="cliente">Cliente</label>
+                                <input type="text" class="form-control" name="cliente" id="cliente" disabled
+                                    value={{ $venta->cliente->nombre }}>
                             </div>
+                            @foreach ($venta->productos as $producto)
+                            <div class="form-group">
+                                <label for="producto">Producto</label>
+                                <input type="text" class="form-control" name="producto" id="producto" disabled
+                                    value={{ $producto->nombre  }}>
+                            </div>
+                            @endforeach
                         </form>
                     </div>
                 </div>

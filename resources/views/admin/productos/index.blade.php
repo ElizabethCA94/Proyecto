@@ -22,16 +22,18 @@
                         <span class="card-title">Lista de productos</span>
                         <a href="{{ route('descargarPDFProductos') }}" class="btn btn-sm btn-primary">Descargar PDF</a>
                         <div class="float-right">
-                            <a href="{{ route('admin.productos.create') }}">
-                                <button class="btn btn-success btn-sm my-1 mb-3">
-                                    Crear
-                                </button>
-                            </a>
+                            @can('admin.productos.create')
+                                <a href="{{ route('admin.productos.create') }}">
+                                    <button class="btn btn-success btn-sm my-1 mb-3">
+                                        Crear
+                                    </button>
+                                </a>
+                            @endcan
                         </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table--striped table-hover">
+                            <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -54,7 +56,7 @@
                                             <td>{{ $producto->precio / $precioDolar }}</td>
                                             <td>
                                                 <img class="px-1" src="/imagen/{{ $producto->imagen }}"
-                                                    width="90%">
+                                                    width="80%">
                                             </td>
                                             <td>
                                                 @if ($producto->categoria)

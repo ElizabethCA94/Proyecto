@@ -20,6 +20,7 @@ class VentasController extends Controller
         $this->middleware('can:admin.ventas.index')->only('index');
         $this->middleware('can:admin.ventas.edit')->only('edit', 'update');
         $this->middleware('can:admin.ventas.create')->only('create', 'store');
+        $this->middleware('can:admin.ventas.show')->only('show');
         $this->middleware('can:admin.ventas.destroy')->only('destroy');
     }
     public function index()
@@ -69,7 +70,8 @@ class VentasController extends Controller
      */
     public function show($id)
     {
-        //
+        $venta = Venta::find($id);
+        return view('admin.ventas.mostrar', compact('venta'));
     }
 
     /**

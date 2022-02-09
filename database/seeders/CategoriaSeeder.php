@@ -19,7 +19,16 @@ class CategoriaSeeder extends Seeder
             ]);
 
         Categoria::create([
-            'nombre' => 'Percusion']);
+            'nombre' => 'Percusion'
+        ]);
+
+        Categoria::create([
+            'nombre' => 'Cuerda'
+        ]);
+
+        Categoria::create([
+            'nombre' => 'Electrico'
+        ]);
     
         
         // User::factory(9)->create();

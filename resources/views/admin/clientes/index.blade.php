@@ -19,17 +19,16 @@
             <div class="col-md-12">
                 <div class="card card-default">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
-                        <a href="{{ route('descargarPDF')}}" class="btn btn-sm btn-primary">Descargar PDF</a>
-
+                        <a href="{{ route('descargarPDF') }}" class="btn btn-sm btn-primary">Descargar PDF</a>
                         <span class="card-title">Lista de clientes</span>
                         <div class="float-right">
                             @can('admin.clientes.create')
-                            <a href="{{ route('admin.clientes.create') }}">
+                                <a href="{{ route('admin.clientes.create') }}">
+                                    <button class="btn btn-success btn-sm my-1 mb-3 float-right">
+                                        Crear
+                                    </button>
+                                </a>
                             @endcan
-                                <button class="btn btn-success btn-sm my-1 mb-3 float-right">
-                                    Crear
-                                </button>
-                            </a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -57,22 +56,31 @@
                                                 <div class="d-flex justify-content-sm-center">
                                                     <div class="btn-group" role="group" aria-label="editar-cliente">
                                                         @can('admin.clientes.edit')
-                                                        <a href="{{ route('admin.clientes.edit', $cliente->id) }}">
-                                                            <button class="btn btn-primary btn-sm">
-                                                                Editar
-                                                            </button>
-                                                        </a>
+                                                            <a href="{{ route('admin.clientes.edit', $cliente->id) }}">
+                                                                <button class="btn btn-primary btn-sm">
+                                                                    Editar
+                                                                </button>
+                                                            </a>
+                                                        @endcan
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="ver-cliente">
+                                                        @can('admin.clientes.show')
+                                                            <a href="{{ route('admin.clientes.show', $cliente->id) }}">
+                                                                <button class="btn btn-success btn-sm mx-1">
+                                                                    Mostrar
+                                                                </button>
+                                                            </a>
                                                         @endcan
                                                     </div>
                                                     <div class="btn-group" role="group" aria-label="eliminar-cliente">
-                                                    @can('admin.clientes.destroy')
-                                                        <form action="{{ route('admin.clientes.destroy', $cliente->id) }}"
-                                                            method="post">
-                                                            @method('DELETE')
-                                                            @csrf
-                                                            <button type="submit" class="btn btn-danger btn-sm mx-1">
-                                                                Eliminar
-                                                            </button>
+                                                        @can('admin.clientes.destroy')
+                                                            <form action="{{ route('admin.clientes.destroy', $cliente->id) }}"
+                                                                method="post">
+                                                                @method('DELETE')
+                                                                @csrf
+                                                                <button type="submit" class="btn btn-danger btn-sm mx-1">
+                                                                    Eliminar
+                                                                </button>
                                                             @endcan
                                                         </form>
                                                     </div>
@@ -88,23 +96,22 @@
             </div>
         </div>
     </section>
-    @stop
+@stop
 
-    @section('css')
-        <link rel="stylesheet" href="/css/admin_custom.css">
-        {{-- <link rel="stylesheet" href="/css/app.css"> --}}
-        <link rel="dns-prefetch" href="//fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-        {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-    
-    @stop
-    
-    @section('js')
-        <script>
-            < script src = "{{ asset('js/app.js') }}"
-            defer >
-        </script>
-    
-        </script>
-    @stop
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+    {{-- <link rel="stylesheet" href="/css/app.css"> --}}
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 
+@stop
+
+@section('js')
+    <script>
+        < script src = "{{ asset('js/app.js') }}"
+        defer >
+    </script>
+
+    </script>
+@stop
