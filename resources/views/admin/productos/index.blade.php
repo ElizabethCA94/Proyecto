@@ -37,6 +37,7 @@
                                     <th>Nombre</th>
                                     <th>Descripcion</th>
                                     <th>Precio</th>
+                                    <th>Precio en Dolar</th>
                                     <th>Categoria</th>
                                     <th>Opciones</th>
                                 </tr>
@@ -48,10 +49,12 @@
                                         <td>{{ $producto->nombre }}</td>
                                         <td>{{ $producto->descripcion }}</td>
                                         <td>{{ $producto->precio }}</td>
-                                        {{-- <td>
-                                                        <img src="/imagen/{{ $producto->categoria->nombre }}" width="60%">
-                                                    <td> --}}
-                                        <td>{{ $producto->categoria->nombre }}</td>
+                                        <td>{{ $producto->precio / $precioDolar }}</td>
+                                        <td>
+                                            @if ($producto->categoria)
+                                                {{ $producto->categoria->nombre }}
+                                            @endif
+                                        </td>
                                         <td>
                                             <div class="d-flex justify-content-sm-center">
                                                 @can('admin.productos.edit')

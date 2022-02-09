@@ -19,9 +19,9 @@
             <div class="col-md-12">
                 <div class="card card-default">
                     <div class="card-header">
-                        <div class="card-title text-center">Precio del dolar en Colombia</div>
+                        <div class="card-title text-center">Precio del dolar en Colombia ${{ $datos['USD_COP'] }}</div>
                     </div>
-                    <table class="table table-striped nt-3">
+                    {{-- <table class="table table-striped nt-3">
                         <thead>
                             <tr>
                                 <th>DIVISA</th>
@@ -31,12 +31,12 @@
                         </thead>
                         <tbody>
                             <tr>
-                                {{-- <td>{{ $datos['result']['target'] }}</td>
-                                <td>{{ $datos['result']['value'] }}</td>
-                                <td>{{ $datos['result']['updated'] }}</td> --}}
+                                <td>Peso Colombiano</td>
+                                <td> {{ $datos-> }} </td>
+                                <td>{{ $datos['result']['updated'] }}</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table> --}}
                 </div>
             </div>
         </div>

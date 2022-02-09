@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Categoria;
-
+use Http;
 
 class ProductosController extends Controller
 {
@@ -24,9 +24,12 @@ class ProductosController extends Controller
     }
     public function index()
     {
+        $respuesta = Http::get('https://free.currconv.com/api/v7/convert?q=USD_COP&compact=ultra&apiKey=235c156296f183d5d706');
+        $precioDolar = $respuesta['USD_COP'];
+
         $productos = Producto::all();
         // //retorne una vista 
-        return view('admin.productos.index', compact('productos'));
+        return view('admin.productos.index', compact('productos', 'precioDolar'));
         // return view('admin.productos.index');
     }
 
