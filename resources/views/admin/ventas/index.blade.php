@@ -88,10 +88,10 @@
                                                                 @endcan
                                                             </div>
                                                             <div class="btn-group" role="group"
-                                                                aria-label="ver-venta">
-                                                                @can('admin.ventas.show')
+                                                                aria-label="ver-producto">
+                                                                @can('admin.productos.show')
                                                                     <a
-                                                                        href="{{ route('admin.ventas.show', $venta->id) }}">
+                                                                        href="{{ route('admin.productos.show', $producto->id) }}">
                                                                         <button class="btn btn-success btn-sm mx-1">
                                                                             Mostrar
                                                                         </button>
