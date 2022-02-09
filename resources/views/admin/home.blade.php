@@ -10,7 +10,7 @@
 @section('plugins.datatablesPlugins', true)
 
 @section('content_header')
-    <h1>Consumo API</h1>
+    <h1>Bienvenida</h1>
 @stop
 
 @section('content')
@@ -19,8 +19,11 @@
             <div class="col-md-12">
                 <div class="card card-default">
                     <div class="card-header">
-                        <div class="card-title text-center">Precio del dolar en Colombia ${{ $datos['USD_COP'] }}</div>
+                        <div class="card-title text-center">Bienvenid@s al sistema de ventas de productos musicales</div>
+                        
                     </div>
+                    <div class="card-title text-center">Precio del dolar en Colombia ${{ $datos['USD_COP'] }}</div>
+                    <img src="https://st2.depositphotos.com/1177973/9072/i/600/depositphotos_90729746-stock-photo-close-up-view-on-musical.jpg" alt="">
                     {{-- <table class="table table-striped nt-3">
                         <thead>
                             <tr>
