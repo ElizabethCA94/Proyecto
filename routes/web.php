@@ -55,7 +55,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::resource('categorias', App\Http\Controllers\CategoriaController::class)->middleware('auth');
+// Route::resource('categorias', App\Http\Controllers\CategoriaController::class)->middleware('auth');
 Route::resource('clientes', ClientesController::class)->middleware('auth')->middleware('proteccion');
 Route::resource('ventas', VentasController::class)->middleware('auth');
 Route::resource('productos', ProductosController::class)->middleware('auth');

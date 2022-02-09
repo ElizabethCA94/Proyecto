@@ -29,7 +29,7 @@
                             @method('PUT')
                             @csrf
 
-                            @include('categoria.form')
+                            @include('admin.categoria.form')
 
                         </form>
                     </div>
