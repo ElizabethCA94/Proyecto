@@ -19,6 +19,7 @@
             <div class="col-md-12">
                 <div class="card card-default">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="card-title">Lista de productos</span>
                         <a href="{{ route('descargarPDFProductos') }}" class="btn btn-sm btn-primary">Descargar PDF</a>
                         <div class="float-right">
                             <a href="{{ route('admin.productos.create') }}">
@@ -28,70 +29,78 @@
                             </a>
                         </div>
                     </div>
-                    <span class="card-title">Lista de productos</span>
-                    <div class="table-responsive">
-                        <table class="table table-striped nt-4">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Nombre</th>
-                                    <th>Descripcion</th>
-                                    <th>Precio</th>
-                                    <th>Precio en Dolar</th>
-                                    <th class="border px-2 py-2 mx-1">Imagen</th>
-                                    <th>Categoria</th>
-                                    <th>Opciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($productos as $producto)
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table--striped table-hover">
+                                <thead>
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $producto->nombre }}</td>
-                                        <td>{{ $producto->descripcion }}</td>
-                                        <td>{{ $producto->precio }}</td>
-                                        <td>{{ $producto->precio / $precioDolar }}</td>
-                                        <td>
-                                            <img class="px-1" src="/imagen/{{ $producto->imagen }}" width="90%">
-                                        </td>
-                                        <td>
-                                            @if ($producto->categoria)
-                                                {{ $producto->categoria->nombre }}
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <div class="d-flex justify-content-sm-center">
-                                                
-                                                @can('admin.productos.edit')
-                                                    <a href="{{ route('admin.productos.edit', $producto->id) }}">
-                                                        <button class="btn btn-primary btn-sm">
-                                                            Editar
-                                                        </button>
-                                                    </a>
-                                                @endcan
-                                                @can('admin.productos.show')
-                                                <a href="{{ route('admin.productos.show', $producto->id) }}">
-                                                    <button class="btn btn-success btn-sm mx-1">
-                                                        Mostrar
-                                                    </button>
-                                                </a>
-                                            @endcan
-                                                @can('admin.productos.destroy')
-                                                    <form action="{{ route('admin.productos.destroy', $producto->id) }}"
-                                                        method="post">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                        <button type="submit" class="btn btn-danger btn-sm">
-                                                            Eliminar
-                                                        </button>
-                                                    </form>
-                                                @endcan
-                                            </div>
-                                        </td>
+                                        <th>#</th>
+                                        <th>Nombre</th>
+                                        <th>Descripcion</th>
+                                        <th>Precio</th>
+                                        <th>Precio en Dolar</th>
+                                        <th>Imagen</th>
+                                        <th>Categoria</th>
+                                        <th>Opciones</th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @foreach ($productos as $producto)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $producto->nombre }}</td>
+                                            <td>{{ $producto->descripcion }}</td>
+                                            <td>{{ $producto->precio }}</td>
+                                            <td>{{ $producto->precio / $precioDolar }}</td>
+                                            <td>
+                                                <img class="px-1" src="/imagen/{{ $producto->imagen }}"
+                                                    width="90%">
+                                            </td>
+                                            <td>
+                                                @if ($producto->categoria)
+                                                    {{ $producto->categoria->nombre }}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <div class="d-flex justify-content-sm-center">
+                                                    <div class="btn-group" role="group" aria-label="editar-producto">
+                                                        @can('admin.productos.edit')
+                                                            <a href="{{ route('admin.productos.edit', $producto->id) }}">
+                                                                <button class="btn btn-primary btn-sm">
+                                                                    Editar
+                                                                </button>
+                                                            </a>
+                                                        @endcan
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="ver-producto">
+                                                        @can('admin.productos.show')
+                                                            <a href="{{ route('admin.productos.show', $producto->id) }}">
+                                                                <button class="btn btn-success btn-sm mx-1">
+                                                                    Mostrar
+                                                                </button>
+                                                            </a>
+                                                        @endcan
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="eliminar-producto">
+                                                        @can('admin.productos.destroy')
+                                                            <form
+                                                                action="{{ route('admin.productos.destroy', $producto->id) }}"
+                                                                method="post">
+                                                                @method('DELETE')
+                                                                @csrf
+                                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                                    Eliminar
+                                                                </button>
+                                                            </form>
+                                                        @endcan
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

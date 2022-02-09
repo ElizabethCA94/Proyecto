@@ -18,17 +18,35 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-default">
-                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                    <div class="card-header">
+                        <span class="card-title text-center">Mostrar producto</span>
                     </div>
-                    <span class="card-title">Lista de productos</span>
-
-                    {{ $producto->nombre }}
-                    {{ $producto->descripcion }}
-                    {{ $producto->precio }}
-                    {{ $producto->precio / $precioDolar }}
-
-
-
+                    <div class="card-body">
+                        <form enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" name="nombre" id="nombre" disabled value={{ $producto->nombre }}>
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcion">Descripcion</label>
+                                <input type="text" class="form-control" name="descripcion" id="descripcion" disabled value={{ $producto->descripcion }}>
+                            </div>
+                            <div class="form-group">
+                                <label for="precio">Precio</label>
+                                <input type="text" class="form-control" name="precio" id="precio" disabled value={{ $producto->precio }}>
+                            </div>
+                            <div class="form-group">
+                                <label for="imagen">Imagen
+                                    <img class="px-1" id="imagen" src="/imagen/{{ $producto->imagen }}"
+                                        width="60%">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="categoria">Categoria</label>
+                                <input type="text" class="form-control" name="categoria" id="categoria" disabled value={{ $producto->categoria->nombre }}>       
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
