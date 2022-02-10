@@ -61,13 +61,7 @@
                                         </td>
                                         <td>
                                             <div class="d-flex justify-content-sm-center">
-                                                @can('admin.productos.show')
-                                                <a href="{{ route('admin.productos.show', $producto->id) }}">
-                                                    <button class="btn btn-primary btn-sm">
-                                                        Mostrar
-                                                    </button>
-                                                </a>
-                                            @endcan
+                                                
                                                 @can('admin.productos.edit')
                                                     <a href="{{ route('admin.productos.edit', $producto->id) }}">
                                                         <button class="btn btn-primary btn-sm">
@@ -75,6 +69,13 @@
                                                         </button>
                                                     </a>
                                                 @endcan
+                                                @can('admin.productos.show')
+                                                <a href="{{ route('admin.productos.show', $producto->id) }}">
+                                                    <button class="btn btn-primary btn-sm">
+                                                        Mostrar
+                                                    </button>
+                                                </a>
+                                            @endcan
                                                 @can('admin.productos.destroy')
                                                     <form action="{{ route('admin.productos.destroy', $producto->id) }}"
                                                         method="post">

@@ -22,7 +22,8 @@
                         <span class="card-title text-center">Edición de productos</span>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('admin.productos.update', $producto->id) }}" method="POST">
+                        <form action="{{ route('admin.productos.update', $producto->id) }}" method="POST"
+                            enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
                             <div class="form-group">
@@ -41,10 +42,16 @@
                                     value={{ $producto->precio }}>
                             </div>
                             <div class="form-group">
-                                <label for="imagen"></label>
-                                <input type="text" class="form-control" name="imagen" id="imagen" placeholder="imagen"
-                                    value={{ $producto->imagen }}>
+                                <label for="imagen">Imagen
+                                    <img class="px-1" id="imagen" src="/imagen/{{ $producto->imagen }}"
+                                        width="60%">
+                                </label>
                             </div>
+                            <input type="file" class="form-control" name="imagen" id="imagen" placeholder="Imagen"
+                                accept="image/*" autocomplete="off" required>
+                            @error('file')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                             <div class="form-group">
                                 <label for="cliente_id">Categoria</label>
                                 <select class="custom-select" name="categoria_id" id="categoria_id">

@@ -120,12 +120,22 @@ class ProductosController extends Controller
             'precio' => 'required',
             'descripcion' => 'required',
         ]);
-
+        
         $producto = Producto::find($id);
+        
+        if($imagen = $request->file('imagen')){
+            $ruta = 'imagen/';
+            $imagenProducto = date('YmdHis'). "." .$imagen->getClientOriginalExtension();
+            $imagen->move($ruta, $imagenProducto);
+        }
+        else{
+            unset($producto->imagen);
+        }
+
         $producto->nombre = $request->nombre;
         $producto->descripcion= $request->descripcion;
         $producto->precio = $request->precio;
-        $producto->imagen = $request->imagen;
+        $producto->imagen = $imagenProducto;
         $producto->categoria_id = $request->categoria_id;
 
         $producto->save();
