@@ -36,18 +36,22 @@
                                         <div><strong>Cliente:</strong> {{ $venta->cliente->nombre }}</div>
                                         <div><strong>Venta:</strong> {{ $venta->id }}</div>
                                         <div class="d-flex my-2">
-                                            <a href="{{ route('admin.ventas.edit', $venta->id) }}">
-                                                <button class="btn btn-primary btn-sm">
-                                                    Editar
-                                                </button>
-                                            </a>
-                                            <form action="{{ route('admin.ventas.destroy', $venta->id) }}" method="post">
-                                                @method('DELETE')
-                                                @csrf
-                                                <button type="submit" class="btn btn-danger btn-sm mx-1">
-                                                    Eliminar
-                                                </button>
-                                            </form>
+                                            @can('admin.ventas.edit')
+                                                <a href="{{ route('admin.ventas.edit', $venta->id) }}">
+                                                    <button class="btn btn-primary btn-sm">
+                                                        Editar
+                                                    </button>
+                                                </a>
+                                            @endcan
+                                            @can('admin.ventas.destroy')
+                                                <form action="{{ route('admin.ventas.destroy', $venta->id) }}" method="post">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-danger btn-sm mx-1">
+                                                        Eliminar
+                                                    </button>
+                                                </form>
+                                            @endcan
                                         </div>
                                     </div>
                                     <table class="table table-striped nt-3">
@@ -64,21 +68,30 @@
                                                     <td>{{ $producto->nombre }}</td>
                                                     <td>
                                                         <div class="d-flex justify-content-sm-center">
-                                                            <div class="btn-group" role="group" aria-label="editar-venta">
-                                                                <a href="{{ route('admin.ventas.edit', $venta->id) }}">
-                                                                    <button class="btn btn-primary btn-sm">
-                                                                        Editar
-                                                                    </button>
-                                                                </a>
+                                                            <div class="btn-group" role="group"
+                                                                aria-label="editar-venta">
+                                                                @can('admin.ventas.edit')
+                                                                    <a href="{{ route('admin.ventas.edit', $venta->id) }}">
+                                                                        <button class="btn btn-primary btn-sm">
+                                                                            Editar
+                                                                        </button>
+                                                                    </a>
+                                                                @endcan
                                                             </div>
-                                                            <div class="btn-group" role="group" aria-label="eliminar-venta">
-                                                                <form action="{{ route('admin.ventas.destroy', $venta->id) }}" method="post">
-                                                                    @method('DELETE')
-                                                                    @csrf
-                                                                    <button type="submit" class="btn btn-danger btn-sm mx-1">
-                                                                        Eliminar
-                                                                    </button>
-                                                                </form>
+                                                            <div class="btn-group" role="group"
+                                                                aria-label="eliminar-venta">
+                                                                @can('admin.ventas.destroy')
+                                                                    <form
+                                                                        action="{{ route('admin.ventas.destroy', $venta->id) }}"
+                                                                        method="post">
+                                                                        @method('DELETE')
+                                                                        @csrf
+                                                                        <button type="submit"
+                                                                            class="btn btn-danger btn-sm mx-1">
+                                                                            Eliminar
+                                                                        </button>
+                                                                    </form>
+                                                                @endcan
                                                             </div>
                                                         </div>
                                                     </td>
@@ -94,23 +107,22 @@
             </div>
         </div>
     </section>
-    @stop
+@stop
 
-    @section('css')
-        <link rel="stylesheet" href="/css/admin_custom.css">
-        {{-- <link rel="stylesheet" href="/css/app.css"> --}}
-        <link rel="dns-prefetch" href="//fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-        {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-    
-    @stop
-    
-    @section('js')
-        <script>
-            < script src = "{{ asset('js/app.js') }}"
-            defer >
-        </script>
-    
-        </script>
-    @stop
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+    {{-- <link rel="stylesheet" href="/css/app.css"> --}}
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 
+@stop
+
+@section('js')
+    <script>
+        < script src = "{{ asset('js/app.js') }}"
+        defer >
+    </script>
+
+    </script>
+@stop

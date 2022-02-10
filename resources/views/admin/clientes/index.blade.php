@@ -58,11 +58,11 @@
                                                     <div class="btn-group" role="group" aria-label="editar-cliente">
                                                         @can('admin.clientes.edit')
                                                         <a href="{{ route('admin.clientes.edit', $cliente->id) }}">
-                                                        @endcan
                                                             <button class="btn btn-primary btn-sm">
                                                                 Editar
                                                             </button>
                                                         </a>
+                                                        @endcan
                                                     </div>
                                                     <div class="btn-group" role="group" aria-label="eliminar-cliente">
                                                     @can('admin.clientes.destroy')
@@ -70,10 +70,10 @@
                                                             method="post">
                                                             @method('DELETE')
                                                             @csrf
-                                                            @endcan
                                                             <button type="submit" class="btn btn-danger btn-sm mx-1">
                                                                 Eliminar
                                                             </button>
+                                                            @endcan
                                                         </form>
                                                     </div>
                                                 </div>
