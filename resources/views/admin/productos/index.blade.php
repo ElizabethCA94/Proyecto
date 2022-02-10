@@ -33,14 +33,14 @@
                         <table class="table table-striped nt-4">
                             <thead>
                                 <tr>
-                                    <th class="border px-4 py-2 mx-1">#</th>
-                                    <th class="border px-4 py-2">Nombre</th>
-                                    <th class="border px-4 py-2">Descripcion</th>
-                                    <th class="border px-4 py-2">Precio</th>
-                                    <th class="border px-4 py-2">Precio en Dolar</th>
+                                    <th>#</th>
+                                    <th>Nombre</th>
+                                    <th>Descripcion</th>
+                                    <th>Precio</th>
+                                    <th>Precio en Dolar</th>
                                     <th class="border px-2 py-2 mx-1">Imagen</th>
-                                    <th class="border px-4 py-2">Categoria</th>
-                                    <th class="border px-4 py-2">Opciones</th>
+                                    <th>Categoria</th>
+                                    <th>Opciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -71,7 +71,7 @@
                                                 @endcan
                                                 @can('admin.productos.show')
                                                 <a href="{{ route('admin.productos.show', $producto->id) }}">
-                                                    <button class="btn btn-primary btn-sm">
+                                                    <button class="btn btn-success btn-sm mx-1">
                                                         Mostrar
                                                     </button>
                                                 </a>
@@ -81,7 +81,7 @@
                                                         method="post">
                                                         @method('DELETE')
                                                         @csrf
-                                                        <button type="submit" class="btn btn-danger btn-sm mx-1">
+                                                        <button type="submit" class="btn btn-danger btn-sm">
                                                             Eliminar
                                                         </button>
                                                     </form>
