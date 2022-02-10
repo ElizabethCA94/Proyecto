@@ -41,6 +41,11 @@
                                     value={{ $producto->precio }}>
                             </div>
                             <div class="form-group">
+                                <label for="imagen"></label>
+                                <input type="text" class="form-control" name="imagen" id="imagen" placeholder="imagen"
+                                    value={{ $producto->imagen }}>
+                            </div>
+                            <div class="form-group">
                                 <label for="cliente_id">Categoria</label>
                                 <select class="custom-select" name="categoria_id" id="categoria_id">
                                     @foreach ($categorias as $categoria)

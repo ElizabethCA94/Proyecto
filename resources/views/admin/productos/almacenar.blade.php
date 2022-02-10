@@ -22,7 +22,7 @@
                         <div class="card-title text-center">Creación de productos</div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('admin.productos.store') }}" method="POST">
+                        <form action="{{ route('admin.productos.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="nombre"></label>
@@ -40,6 +40,14 @@
                                     autocomplete="off" required>
                             </div>
                             <div class="form-group pt-2">
+                                <label for="imagen">Imagen</label>
+                                <input type="file" class="form-control" name="imagen" id="imagen" placeholder="Imagen" accept="image/*"
+                                    autocomplete="off" required>
+                                @error('file')
+                                    <small class="text-danger">{{$message}}</small>
+                                @enderror
+                            </div>
+                            <div class="form-group pt-2">
                                 <label for="categoria_id">Categoria</label>
                                 <select class="form-select" aria-label="categoría" name="categoria_id" id="categoria_id">
                                     @foreach ($categorias as $categoria)
@@ -48,7 +56,7 @@
                                 </select>
                             </div>
                             <div class="btn-group" role="group" aria-label="crear-producto">
-                                <button type="submit" class="btn btn-primary mt-3">Crear</button>
+                                <button type="submit" class="btn btn-primary mt-2">Crear</button>
                             </div>
                         </form>
                     </div>

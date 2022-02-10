@@ -20,6 +20,7 @@ class ProductosController extends Controller
         $this->middleware('can:admin.productos.index')->only('index');
         $this->middleware('can:admin.productos.edit')->only('edit', 'update');
         $this->middleware('can:admin.productos.create')->only('create', 'store');
+        $this->middleware('can:admin.productos.show')->only('show');
         $this->middleware('can:admin.productos.destroy')->only('destroy');
     }
     public function index()
@@ -30,7 +31,6 @@ class ProductosController extends Controller
         $productos = Producto::all();
         // //retorne una vista 
         return view('admin.productos.index', compact('productos', 'precioDolar'));
-        // return view('admin.productos.index');
     }
 
     /**
@@ -51,13 +51,25 @@ class ProductosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $validated = $request->validate([
+            'nombre' => 'required',
+            'precio' => 'required',
+            'descripcion' => 'required',
+            'imagen' => 'required|image|max:1024',
+        ]);
+        if($imagen = $request->file('imagen')){
+            $ruta = 'imagen/';
+            $imagenProducto = date('YmdHis'). "." .$imagen->getClientOriginalExtension();
+            $imagen->move($ruta, $imagenProducto);
+        }
+
         //instancia de la clase Productos, -> son campos de la bd y -> son name del formulario
         $producto = new Producto();
         $producto->nombre = $request->nombre;
         $producto->descripcion= $request->descripcion;
         $producto->precio = $request->precio;
-        $producto->imagen = 'Imagen de prueba';
+        $producto->imagen =  $imagenProducto;
         $producto->categoria_id = $request->categoria_id;
         $producto->save();
 
@@ -74,7 +86,9 @@ class ProductosController extends Controller
      */
     public function show($id)
     {
-        //
+        $producto = Producto::find($id);
+        return view('admin.productos.mostrar', compact('producto'));
+
     }
 
     /**
@@ -111,7 +125,7 @@ class ProductosController extends Controller
         $producto->nombre = $request->nombre;
         $producto->descripcion= $request->descripcion;
         $producto->precio = $request->precio;
-        $producto->imagen = 'Imagen de prueba';
+        $producto->imagen = $request->imagen;
         $producto->categoria_id = $request->categoria_id;
 
         $producto->save();
