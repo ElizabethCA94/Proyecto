@@ -37,6 +37,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Nombre</th>
+                                        <th>Operaciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
